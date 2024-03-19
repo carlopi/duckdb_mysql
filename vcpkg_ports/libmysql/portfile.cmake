@@ -18,6 +18,11 @@ if(NOT VCPKG_TARGET_IS_WINDOWS)
         ${PATCH_FILES}
         posix_changes.patch
     )
+else()
+    set(PATCH_FILES
+        ${PATCH_FILES}
+        posix_win_changes.patch
+    )
 endif()
 
 set(CROSS_COMPILING "")

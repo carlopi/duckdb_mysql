@@ -1,0 +1,28 @@
+diff --git a/configure.cmake b/configure.cmake
+index 96664b16..99e26446 100644
+--- a/configure.cmake
++++ b/configure.cmake
+@@ -403,21 +403,8 @@ MY_CHECK_CXX_COMPILER_FLAG("-fvisibility=hidden" HAVE_VISIBILITY_HIDDEN)
+ # Code tests
+ #
+ 
+-CHECK_C_SOURCE_RUNS("
+-#include <time.h>
+-int main()
+-{
+-  struct timespec ts;
+-  return clock_gettime(CLOCK_MONOTONIC, &ts);
+-}" HAVE_CLOCK_GETTIME)
+-
+-CHECK_C_SOURCE_RUNS("
+-#include <time.h>
+-int main()
+-{
+-  struct timespec ts;
+-  return clock_gettime(CLOCK_REALTIME, &ts);
+-}" HAVE_CLOCK_REALTIME)
++set(HAVE_CLOCK_GETTIME 1)
++set(HAVE_CLOCK_REALTIME 1)
+ 
+ IF(NOT STACK_DIRECTION)
+   IF(CMAKE_CROSSCOMPILING)
